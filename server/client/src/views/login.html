@@ -1,0 +1,62 @@
+<body style="background:#CAD0D2">
+
+       <div class="container">
+           <div class="row">
+               <!-- <div class="col-md-2">
+               </div> -->
+               <div class="col-md-4">
+                   <div class="panel panel-default">
+                           <div class="panel-body">
+                             <div class="page-header">
+                               <h3>Login</h3>
+                             </div>
+   <form class="form" name="loginForm" novalidate>
+     <div growl></div>
+   <div class="form-group" ng-class="{'has-errors':loginForm.username.$invalid &&
+   !loginForm.username.$pristine, 'has-success':loginForm.username.$valid && !loginForm.username.$pristine}">
+   <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+          <input class="form-control" id="user_id" ng-model="user.username"
+          placeholder="Username" name="username" required autofocus>
+          </div>
+       <!-- <p class="help-block" ng-show="loginForm.username.$invalid && loginForm.username.$dirty &&
+       !loginForm.username.$focused">Wrong Username!</p> -->
+   </div>
+
+   <div class="form-group" ng-class="{'has-errors':loginForm.password.$invalid && loginForm.password.$dirty,
+       'has-success':loginForm.password.$valid && loginForm.password.$dirty}">
+           <div class="input-group">
+               <span class="input-group-addon" id="basic-addon2"><i class="fa fa-key"></i></span>
+                   <input type="password" class="form-control" id="password_id" placeholder="Password"
+                       ng-model="user.password" name="password" required cu-focus>
+                   </div>
+           <!-- <p class="help-block" ng-show="loginForm.password.$invalid && loginForm.password.$dirty &&
+           !loginForm.password.$focused">Wrong Pasword!</p> -->
+   </div>
+
+   <button type="submit" ng-click="login(user)"  class="btn btn-primary" name="Login"
+   ng-disabled="loginForm.$invalid"><i class="fa fa-sign-in"></i></button>
+
+</form>
+
+
+
+                           </div>
+                   </div>
+               </div>
+
+
+
+           </div>
+
+   </div>
+
+
+
+
+
+
+
+
+
+   </body>

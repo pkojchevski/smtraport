@@ -1,0 +1,133 @@
+<div class="container">
+
+  <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                            <div class="panel-body" style="background-color: #a6e1ec">
+                              <div class="page-header" style="margin-top: 5px;">
+                                  <h4><i>Add/Edit Cycle time</i></h4>
+                              </div>
+
+
+<form name="capacityForm" class="form-horizontal" id="capacityForm" ng-submit="addProduct(capacityForm.$valid)" novalidate>
+    <div class="form-group row" ng-class="{ 'has-error':
+    !capacityForm.productIndex.$pristine && capacityForm.productIndex.$invalid && capacityForm.$submitted}">
+      <label for="indeks" class="col-sm-4 control-label">Product index:</label>
+      <div class="col-sm-6">
+      <input type="text" ng-model="productIndex" name="productIndex" class="form-control" placeholder="Product index"
+                ng-minlength="12"
+                ng-maxlength="12"
+                required/>
+        <div class="help-block" ng-messages="capacityForm.productIndex.$error"
+        ng-show="!capacityForm.productIndex.$pristine && capacityForm.productIndex.$invalid && capacityForm.$submitted">
+                <p ng-message="minlength">This field is too short</p>
+                <p ng-message="maxlength">This field is too long</p>
+                <p ng-message="required">This field is required</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group row" ng-class="{'has-error': !capacityForm.opis.$pristine && capacityForm.opis.$invalid  && capacityForm.$submitted }">
+      <label for="opis" class="col-sm-4 control-label">Product description:</label>
+      <div class="col-sm-6">
+      <input type="text" ng-model="productOpis"name="opis" class="form-control" placeholder="Product description"
+       required/>
+        <div class="help-block" ng-messages="capacityForm.opis.$error"
+        ng-show="!capacityForm.opis.$pristine && capacityForm.opis.$invalid && capacityForm.$submitted">
+                <p ng-message="required">This field is required</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group row" ng-class="{ 'has-error': !capacityForm.pcbsnapanel.$pristine && capacityForm.pcbsnapanel.$invalid  && capacityForm.$submitted }">
+      <label for="pcbsnapanel" class="col-sm-4 control-label">PCBs/Panel:</label>
+      <div class="col-sm-6">
+      <input type="text" ng-model="pcbsnapanel" name="pcbsnapanel" class="form-control" placeholder="PCBs/Panel"
+      required/>
+        <div class="help-block" ng-messages="capacityForm.pcbsnapanel.$error"
+        ng-show="!capacityForm.pcbsnapanel.$pristine && capacityForm.pcbsnapanel.$invalid && capacityForm.$submitted">
+                <p ng-message="required">This field is required</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group row" ng-class="{ 'has-error': !capacityForm.pcbsnagodzina.$pristine && capacityForm.pcbsnagodzina.$invalid  && capacityForm.$submitted }">
+      <label for="pcbsnagodzina" class="col-sm-4 control-label">PCBs/hour:</label>
+      <div class="col-sm-6">
+      <input type="text" ng-model="pcbsnagodzina" name="pcbsnagodzina" class="form-control" placeholder="PCBs/Hour"
+      required/>
+            <div class="help-block" ng-messages="capacityForm.pcbsnagodzina.$error"
+            ng-show="!capacityForm.pcbsnagodzina.$pristine && capacityForm.pcbsnagodzina.$invalid && capacityForm.$submitted">
+                <p ng-message="minlength">This field is too short</p>
+                <p ng-message="maxlength">This field is too long</p>
+                <p ng-message="required">This field is required</p>
+            </div>
+    </div>
+    </div>
+
+    <div class="col-md-2"></div>
+     <div class="form-group">
+     <button id="btnAdd" type="submit" name="action" value="Add" class="btn btn-primary" ng-disabled="{{currentUser.role != 'admin'}}">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+
+     <a id="btnContinue" ng-click="clearFields()" name="action" value="continue" class="btn btn-primary">
+          <i class="fa fa-forward" aria-hidden="true"></i></a>
+
+     <a ng-click="searchProducts()" class="btn btn-primary" >
+         <i class="fa fa-search" aria-hidden="true"></i></a>
+     <div growl inline="true"></div>
+   </div>
+<!--
+    <div growl></div> -->
+            </div>
+        </div>
+
+
+   <div class="col-sm-8">
+       <div class="form-group">
+           <input type="text" class="form-control" ng-model="f.productIndex" placeholder="Search by Index...">
+       </div>
+   </div>
+    <table id="tabelaProducts" class="table-condensed table-hover table-striped table-bordered">
+        <thead style="font-size: 12px">
+            <tr>
+                <!-- <th class="row-1 row-id">Id</th> -->
+                <th class="row-1 row-Index">Product Index</th>
+                <th class="row-2 row-Description">Product Description</th>
+                <th class="row-3 row-PcbsNaPanel">PCBs/panel</th>
+                <th class="row-4 row-PcbsNaGodzina">PCBs/hour</th>
+                <th class="row-4 row-PcbsNaGodzina">Updated By</th>
+                <th class="row-4 row-PcbsNaGodzina">Created At</th>
+                <th class="row-5 row-edit">Edit</th>
+                <th class="row-6 row-delete">Delete</th>
+            </tr>
+        </thead>
+        <tbody style="font-size: 10px">
+
+            <tr ng-repeat="p in products|filter:f">
+                <!-- <td>{{::p.idProduct}}</td> -->
+                <td>{{::p.productIndex}}</td>
+                <td>{{::p.description}}</td>
+                <td>{{::p.pcbsonpanel}}</td>
+                <td>{{::p.pcbs100}}</td>
+                <td>{{::p.username}}</td>
+                <td>{{::p.createdAt | date}}</td>
+                <td>
+                <a scrollup class="btn btn-small" href="" ng-click="editProduct(p)" ng-disabled="{{currentUser.role != 'admin'}}">
+                <i class="fa fa-pencil-square-o" title="Edit" aria-hidden="true"></i>
+                <span class="sr-only"></span>
+                </a>
+                </td>
+                <td>
+                <a scrollup class="btn btn-small" href="" ng-click="deleteProduct(p)" ng-disabled="{{currentUser.role != 'admin'}}">
+                <i class="fa fa-trash-o" title="Delete" aria-hidden="true"></i>
+                <span class="sr-only"></span>
+                </a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>

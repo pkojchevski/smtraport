@@ -1,0 +1,199 @@
+<div class="container">
+      <div class="piechart3">
+          <div id="container3"></div>
+      </div>
+      <div class="chartWeekly">
+            <div id="container"></div>
+          </div>
+      <div class="piechart4">
+          <div id="container4"></div>
+      </div>
+      <div class="infoData1">
+         <input type="text" class="form-control"
+         uib-datepicker-popup="{{format}}"
+         ng-model="date" pk-leave is-open="popup1.opened"
+         datepicker-options="dateOptions"
+         ng-required="true" close-text="Close"
+         alt-input-formats="altInputFormats" ng-focus="open()" placeholder='from...'/>
+          <div class="form-group">
+            <label for=""></label>
+            <input type="text" class="form-control" value="{{secDate|date:'dd-MMM-yy'}}" placeholder='..to'/>
+          </div>
+            <button class="btn btn-success" ng-click="showDataForPeriod()" ng-disabled = "!start">Show</button>
+      </div>
+
+    <div growl></div>
+
+    <table class="recordsWeekly" ng-show = "start">
+        <thead>
+          <tr>
+            <th class="week"></th>
+              <th class="row-date-weekly" ng-repeat = "w in weekArrDates" style="font-size:8.5px;">{{w}}</th>
+          </tr>
+            <tr>
+              <th>cw:{{cw}}</th>
+                <th class="row-day-weekly" ng-repeat = "d in weekArrDays">{{d}}</th>
+            </tr>
+        </thead>
+         <tr ng-repeat="rec in prodDataWeekly track by $index">
+                <td>{{rec.text}}</td>
+                <td ng-repeat="val in rec.values track by $index">{{val}}</td>
+            </tr>
+    </table>
+
+    <table class="recordsWeeklyTot" ng-show = "start">
+        <thead>
+            <tr>
+                <th class="row-sumaTot-weekly">&#931</th>
+                <th class="row-percentTot-weekly">%</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr ng-repeat="rec in prodDataWeeklyTot track by $index">
+                <td ng-repeat="val in rec.values track by $index">{{val}}</td>
+           </tr>
+        </tbody>
+    </table>
+
+    <table class="productsWeekly" ng-show = "start">
+        <thead>
+          <tr>
+              <th class="row-index-weekly"></th>
+              <th class="row-opis-weekly"></th>
+              <th class="row-pcbs-weekly"></th>
+              <th class="row-eff100-weekly"></th>
+          </tr>
+            <tr>
+                <th class="row-index-weekly">Indeks</th>
+                <th class="row-opis-weekly">Opis</th>
+                <th class="row-pcbs-weekly">#pcbs</th>
+                <th class="row-eff100-weekly">100%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in productsWeekly track by $index">
+                <td class="">{{p.productIndex}}</td>
+                <td class="opis-weekly">{{p.description}}</td>
+                <td class="pcbs-weekly">{{p.pcbs100}}</td>
+                <td class="eff100-weekly">{{p.pcbsonpanel}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table class="productsWeeklyQuantity" ng-show = "start">
+       <thead>
+         <tr>
+             <th class="row-date-weekly" ng-repeat = "w in weekArrDates" style="font-size:8.5px;">{{w}}</th>
+         </tr>
+           <tr>
+               <th class="row-day-weekly" ng-repeat = "d in weekArrDays">{{d}}</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr ng-repeat="p in productsWeekly track by $index">
+               <td ng-repeat="qty in p.weeklyQuantity track by $index">{{qty}}</td>
+           </tr>
+       </tbody>
+   </table>
+
+
+     <table class="productsWeeklyQuantityTot" ng-show = "start">
+         <thead>
+             <tr>
+                 <th class="row-sumaTot-weekly">&#931</th>
+                 <th class="row-percent-weekly">%</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr ng-repeat="pTot in productsWeeklyTot track by $index">
+                 <td ng-repeat="p in pTot.monthlyQuantity">{{p}}</td>
+             </tr>
+         </tbody>
+     </table>
+
+        <table class="ppStopsWeekly" ng-show = "start">
+            <thead>
+              <tr>
+                <th class="opisPrzestojów-weekly"></th>
+                <th class="details-weekly"></th>
+                <th class="row-date-weekly" ng-repeat = "w in weekArrDates" style="font-size:8.5px;">{{w}}</th>
+              </tr>
+            <tr>
+            <th class="opisPrzestojów-weekly">Opis</th>
+            <th class="details-weekly">Szczegóły</th>
+            <th class="row-day-weekly" ng-repeat = "d in weekArrDays">{{d}}</th>
+          </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="rec in ppTotWeekly track by $index">
+                    <td>{{rec.text}}</td>
+                    <td>{{rec.details}}</td>
+                    <td ng-repeat="val in rec.values track by $index">{{val}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    <table class="ppStopsWeeklyTot" ng-show = "start">
+        <thead>
+            <tr>
+                <th class="row-sumaTot-weekly">&#931</th>
+                <th class="row-percentTot-weekly">%</th>
+            </tr>
+        </thead>
+
+        <tbody>
+             <tr ng-repeat="rec in ppTotWeeklyTot track by $index">
+                <td ng-repeat="val in rec.values track by $index">{{val}}</td>
+             </tr>
+        </tbody>
+    </table>
+
+    <table class="nppStopsWeekly" ng-show = "start">
+        <thead>
+          <tr>
+            <th class="opisPrzestojów-weekly"></th>
+            <th class="details-weekly"></th>
+            <th class="row-date-weekly" ng-repeat = "w in weekArrDates" style="font-size:8.5px;">{{w}}</th>
+          </tr>
+          <th class="opisPrzestojów-weekly">Opis</th>
+          <th class="details-weekly">Szczegóły</th>
+          <th class="row-day-weekly" ng-repeat = "d in weekArrDays">{{d}}</th>
+        </thead>
+             <tr ng-repeat="rec in npTotWeekly track by $index">
+                <td>{{rec.text}}</td>
+                <td>{{rec.details}}</td>
+                <td ng-repeat="val in rec.values track by $index">{{val}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="nppStopsWeeklyTot" ng-show = "start">
+       <thead>
+           <tr>
+               <th class="row-sumaTot-weekly">&#931</th>
+               <th class="row-percentTot-weekly">%</th>
+           </tr>
+       </thead>
+       <tbody>
+            <tr ng-repeat="rec in npTotWeeklyTot track by $index">
+               <td ng-repeat="val in rec.values track by $index">{{val}}</td>
+           </tr>
+       </tbody>
+   </table>
+
+
+
+    <div class="ppchartWeekly">
+        <div id="container5"></div>
+    </div>
+
+    <div class="nppchartWeekly">
+        <div id="container6"></div>
+    </div>
+
+
+
+
+</div>

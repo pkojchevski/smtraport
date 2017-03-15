@@ -1,0 +1,616 @@
+<div class="container">
+
+ <div class="infoData">
+        <h3>Data:{{productionDate}}</h3>
+        <button type="button" class="btn btn-success" ng-click="resetDailyRecords()">Reset</button>
+    </div>
+
+    <div class="piechart1">
+        <div id="container1"></div>
+    </div>
+
+<div class="chart">
+    <div id="container"></div>
+</div>
+
+    <div class="piechart2">
+        <div id="container2"></div>
+    </div>
+
+    <table class="productsRecord">
+        <thead>
+            <tr>
+                <th>Zmiana</th>
+                <th colspan="8"><select name="shift">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                    </select>
+                </th>
+                <th colspan="8"><select name="shift">
+                        <option value="B">B</option>
+                        <option value="A">A</option>
+                    </select>
+                </th>
+
+            </tr>
+
+            <tr>
+                <th class="row-hour">Godz.</th>
+                <th class="row-0607">06-07</th>
+                <th class="row-0708">07-08</th>
+                <th class="row-0809">08-09</th>
+                <th class="row-0910">09-10</th>
+                <th class="row-1011">10-11</th>
+                <th class="row-1112">11-12</th>
+                <th class="row-1213">12-13</th>
+                <th class="row-1314">13-14</th>
+                <th class="row-1415">14-15</th>
+                <th class="row-1516">15-16</th>
+                <th class="row-1617">16-17</th>
+                <th class="row-1718">17-18</th>
+                <th class="row-1819">18-19</th>
+                <th class="row-1920">19-20</th>
+                <th class="row-2021">20-21</th>
+                <th class="row-2122">21-22</th>
+            </tr>
+        </thead>
+            <tr>
+                <td ng-repeat="eff in efficiency track by $index">
+                    <input type="text" value="{{eff}}" pk-listen1 id="{{$index}}" class="efficiency" readonly>
+                </td>
+            <tr>
+                <td ng-repeat="lo in lineOpened track by $index">
+                    <input type="text" value="{{lo}}" pk-listen1 id="{{$index}}" class="lineOpened" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="lc in lineClosed track by $index">
+                    <input type="text" value="{{lc}}" id="{{$index}}" class="lineClosed" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="le in lineEff track by $index">
+                    <input type="text" value="{{le}}" pk-listen1 id="{{$index}}" class="lineEff" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="nps in npStops track by $index">
+                    <input type="text" value="{{nps}}" pk-listen1 id="{{$index}}" class="npStops" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="t in target track by $index">
+                    <input type="text" value="{{t}}" pk-listen1 id="{{$index}}" class="target" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="p1 in product1 track by $index" class=""><input type="text" value="{{p1}}" pk-listen
+                id="{{$index}}" class="effproduct1" /></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p2 in product2 track by $index"><input type="text" value="{{p2}}" pk-listen
+               id="{{$index}}" class="effproduct2"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p3 in product3 track by $index"><input type="text" value="{{p3}}" pk-listen
+                id="{{$index}}" class="effproduct3"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p4 in product4 track by $index"><input type="text" value="{{p4}}" id="{{$index}}" pk-listen
+                id="{{$index}}" class="effproduct4"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p5 in product5 track by $index"><input type="text" value="{{p5}}" pk-listen
+                id="{{$index}}" class="effproduct5"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p6 in product6 track by $index"><input type="text" value="{{p6}}" pk-listen
+                id="{{$index}}" class="effproduct6"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p7 in product7 track by $index"><input type="text" value="{{p7}}" pk-listen
+                id="{{$index}}" class="effproduct7"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p8 in product8 track by $index"><input type="text" value="{{p8}}" pk-listen
+                id="{{$index}}" class="effproduct8"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p9 in product9 track by $index"><input type="text" value="{{p9}}" pk-listen
+                id="{{$index}}" class="effproduct9"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p10 in product10 track by $index"><input type="text" value="{{p10}}" pk-listen
+                id="{{$index}}" class="effproduct10"/></td>
+            </tr>
+    </table>
+
+    <table class="products">
+
+        <thead>
+            <tr>
+                <th class="row-index">Indeks</th>
+                <th class="row-opis">Opis</th>
+                <th class="row-pcbs">#pcbs</th>
+                <th class="row-eff100">100%</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="p in products track by $index">
+                <td><input type="text" pk-listen-product
+                id="{{$index}}" class="index" value="{{p.productIndex}}"/></td>
+                <td class="opis">{{p.opis}}</td>
+                <td class="pcbs">{{p.pcbs100}}</td>
+                <td class="eff100">{{p.pcbsnapanel}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="totalEff">
+        <thead>
+            <tr>
+                <th class="row-suma1">&#931</th>
+                <th class="row-suma2">&#931</th>
+                <th class="row-sumaTot">&#931</th>
+                <th class="row-percentTot">%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td ng-repeat="eTot in efficiencyTot track by $index"><input type="text" id="{{$index}}" class="efficiencyTot" pk-listen1 value="{{eTot}}" readonly></td>
+            </tr>
+            <tr >
+                <td ng-repeat="oTot in lineOpenedTot track by $index"><input type="text" id="{{$index}}" class="lineOpenedTot" pk-listen1 value="{{oTot}}" readonly></td>
+            </tr>
+            <tr >
+                <td ng-repeat="cTot in lineClosedTot track by $index"><input type="text" id="{{$index}}" class="lineClosedTot" pk-listen1 value="{{cTot}}" readonly></td>
+            </tr>
+            <tr >
+                <td ng-repeat="leTot in lineEffTot track by $index"><input type="text" id="{{$index}}" class="lineEffTot" pk-listen1 value="{{leTot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="npsTot in npStopsTot track by $index"><input type="text" id="{{$index}}" class="npStopsTot" pk-listen1 value="{{npsTot}}" readonly></td>
+            </tr>
+            <tr >
+                <td ng-repeat="tTot in targetTot track by $index"><input type="text" id="{{$index}}" class="targetTot" pk-listen1 value="{{tTot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p1Tot in product1Tot track by $index"><input type="text" id="{{$index}}" class="product1Tot" pk-listen1 value="{{p1Tot}}" readonly></td>
+            </tr>
+            <tr >
+                <td ng-repeat="p2Tot in product2Tot track by $index"><input type="text" id="{{$index}}" class="product2Tot" pk-listen1 value="{{p2Tot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p3Tot in product3Tot track by $index"><input type="text" id="{{$index}}" class="product3Tot" pk-listen1 value="{{p3Tot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p4Tot in product4Tot track by $index"><input type="text" id="{{$index}}" class="product4Tot" pk-listen1 value="{{p4Tot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p5Tot in product5Tot track by $index"><input type="text" id="{{$index}}" class="product5Tot" pk-listen1 value="{{p5Tot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p6Tot in product6Tot track by $index"><input type="text" id="{{$index}}" class="product6Tot" pk-listen1 value="{{p6Tot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p7Tot in product7Tot track by $index"><input type="text" id="{{$index}}" class="product7Tot" pk-listen1 value="{{p7Tot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p8Tot in product8Tot track by $index"><input type="text" id="{{$index}}" class="product8Tot" pk-listen1 value="{{p8Tot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p9Tot in product9Tot track by $index"><input type="text" id="{{$index}}" class="product9Tot" pk-listen1 value="{{p9Tot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="p10Tot in product10Tot track by $index"><input type="text" id="{{$index}}" class="product10Tot" pk-listen1 value="{{p10Tot}}" readonly></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <table class="ppStops">
+        <thead>
+            <tr>
+        <th class="lineClosedTitle">Planowane przestoje(Linija zamknieta)</th>
+        <th ng-repeat="lc in lineClosed track by $index" class="lineClosed{{$index}}">
+            <input type="text" id="{{$index}}" class="lineClosed" pk-listen1 value="{{lc}}" readonly>
+        </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+        <td class="opisPrzestojów">Opis</td>
+        <td class="details">Szczegóły</td>
+        <td ng-repeat="h in hour">{{h}}</td>
+            </tr>
+
+            <tr>
+                <td ng-repeat="lp in linePreparing track by $index"><input type="text" value="{{lp}}" pk-listen
+                id="{{$index}}" class="pplinePreparing"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="meet in meeting track by $index"><input type="text" value="{{meet}}" pk-listen
+                id="{{$index}}" class="ppmeeting"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="paus in pause track by $index"><input type="text" value="{{paus}}" pk-listen
+                id="{{$index}}" class="pppause"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="nopl in noPlan track by $index"><input type="text" value="{{nopl}}" pk-listen
+                id="{{$index}}" class="ppnoPlan"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="maint in maintenance track by $index"><input type="text" value="{{maint}}" pk-listen
+                id="{{$index}}" class="ppmaintenance"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="inv in inventory track by $index"><input type="text" value="{{inv}}" pk-listen
+                id="{{$index}}" class="ppinventory"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="valid in validation track by $index"><input type="text" value="{{valid}}" pk-listen
+                id="{{$index}}" class="validation"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="missOp in missOperator track by $index"><input type="text" value="{{missOp}}" pk-listen
+                id="{{$index}}" class="ppmissOperator"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="missComp in missComponent track by $index"><input type="text" value="{{missComp}}" pk-listen
+                id="{{$index}}" class="ppmissComponent"/></td></td>
+            </tr>
+            <tr>
+                <td ng-repeat="qI in qualityIssue track by $index"><input type="text" value="{{qI}}" pk-listen
+                id="{{$index}}" class="ppqualityIssue"/></td>
+            </tr>
+             <tr>
+                <td ng-repeat="oth1 in other1 track by $index"><input type="text" value="{{oth1}}" pk-listen
+                id="{{$index}}" class="ppother1"/></td>
+            </tr>
+             <tr>
+                <td ng-repeat="oth2 in other2 track by $index"><input type="text" value="{{oth2}}" pk-listen
+                id="{{$index}}" class="ppother2"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="oth3 in other3 track by $index"><input type="text" value="{{oth3}}" pk-listen
+                id="{{$index}}" class="ppother3"/></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <table class="ppStopsTot">
+        <thead>
+            <tr>
+                <th class="row-suma1">&#931</th>
+                <th class="row-suma2">&#931</th>
+                <th class="row-sumaTot">&#931</th>
+                <th class="row-percentTot">%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td ng-repeat="lpTot in linePreparingTot track by $index">
+                   <input type="text" id="{{$index}}" class="linePreparingTot" pk-listen1 value="{{lpTot}}" readonly></td>
+            </tr>
+            <tr >
+                <td ng-repeat="mTot in meetingTot track by $index">
+                    <input type="text" id="{{$index}}" class="meetingTot" pk-listen1 value="{{mTot}}" readonly>
+                </td>
+            </tr>
+            <tr >
+                <td ng-repeat="pTot in pauseTot track by $index">
+                <input type="text" id="{{$index}}" class="pauseTot" pk-listen1 value="{{pTot}}" readonly></td>
+            </tr>
+            <tr >
+                <td ng-repeat="nplTot in noPlanTot track by $index">
+                    <input type="text" id="{{$index}}" class="noPlanTot" pk-listen1 value="{{nplTot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="prevTot in preventiveTot track by $index">
+                   <input type="text" id="{{$index}}" class="prevTot" pk-listen1 value="{{prevTot}}" readonly></td>
+            </tr>
+            <tr >
+                <td ng-repeat="invTot in inventoryTot track by $index">
+                    <input type="text" id="{{$index}}" class="inventoryTot" pk-listen1 value="{{invTot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="valTot in validationTot track by $index">
+                    <input type="text" id="{{$index}}" class="validationTot" pk-listen1 value="{{valTot}}" readonly>
+                </td>
+            </tr>
+            <tr >
+                <td ng-repeat="missOTot in missOperatorTot track by $index">
+                    <input type="text" id="{{$index}}" class="missOperatorTot" pk-listen1 value="{{missOTot}}" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="missCTot in missComponentTot track by $index">
+                    <input type="text" id="{{$index}}" class="missCTot" pk-listen1 value="{{missCTot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="qiTot in qualityIssueTot track by $index">
+                <input type="text" id="{{$index}}" class="qualityIssueTot" pk-listen1 value="{{qiTot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="oth1Tot in other1Tot track by $index">
+                    <input type="text" id="{{$index}}" class="other1Tot" pk-listen1 value="{{oth1Tot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="oth2Tot in other2Tot track by $index">
+                    <input type="text" id="{{$index}}" class="other2Tot" pk-listen1 value="{{oth2Tot}}" readonly></td>
+            </tr>
+            <tr>
+                <td ng-repeat="oth3Tot in other3Tot track by $index">
+                <input type="text" id="{{$index}}" class="other3Tot" pk-listen1 value="{{oth3Tot}}" readonly></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+
+    <table class="nppStops">
+        <thead>
+            <tr>
+        <th class="lineClosedTitle">Nieplanowane przestoje</th>
+        <th ng-repeat="npS in npStops track by $index" class="npStops{{$index}}">
+            <input type="text" id="{{$index}}" class="npStops" pk-listen1 value="{{npS}}" readonly>
+        </th>
+            </tr>
+        </thead>
+         <tbody>
+        <tr>
+        <td class="opisPrzestojów">Opis</td>
+        <td class="details">Szczegóły</td>
+        <td ng-repeat="h in hour">{{h}}</td>
+        </tr>
+            <tr>
+                <td ng-repeat="mc in modelChange track by $index"><input type="text" value="{{mc}}" pk-listen
+                id="{{$index}}" class="npmodelChange"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="cs in changeSide track by $index"><input type="text" value="{{cs}}" pk-listen
+                id="{{$index}}" class="npchangeSide"/></td></td>
+            </tr>
+            <tr>
+                <td ng-repeat="cv in changeVersion track by $index"><input type="text" value="{{cv}}" pk-listen
+                id="{{$index}}" class="npchangeVersion"/></td></td>
+            </tr>
+            <tr>
+                <td ng-repeat="missComp in missingComponent track by $index"><input type="text" value="{{missComp}}" pk-listen
+                id="{{$index}}" class="npmissingComponent"/></td></td>
+            </tr>
+            <tr>
+                <td ng-repeat="compver in componentVerification track by $index"><input type="text" value="{{compver}}" pk-listen
+                id="{{$index}}" class="npcomponentVerification"/></td></td>
+            </tr>
+            <tr>
+                <td ng-repeat="wplS in wrongPlStencil track by $index"><input type="text" value="{{wplS}}" pk-listen
+                id="{{$index}}" class="npwrongPlStencil"/></td></td>
+            </tr>
+            <tr>
+                <td ng-repeat="damSt in damagedStencil track by $index"><input type="text" value="{{damSt}}" pk-listen
+                id="{{$index}}" class="npdamagedStencil"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="dcS in DrukCleaningStencil track by $index"><input type="text" value="{{dcS}}" pk-listen
+                id="{{$index}}" class="npDrukCleaningStencil"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="daP in DrukAddingPaste track by $index"><input type="text" value="{{daP}}" pk-listen
+                id="{{$index}}" class="npDrukAddingPaste"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="ddV in DrukDodanieVigon track by $index"><input type="text" value="{{ddV}}" pk-listen
+                id="{{$index}}" class="npDrukDodanieVigon"/></td>
+            </tr>
+             <tr>
+                <td ng-repeat="dpCorr in DrukProgramCorrection track by $index"><input type="text" value="{{dpCorr}}" pk-listen
+                id="{{$index}}" class="npDrukProgramCorrection"/></td>
+            </tr>
+             <tr>
+                <td ng-repeat="dpChange in DrukPaperChange track by $index"><input type="text" value="{{dpChange}}" pk-listen
+                id="{{$index}}" class="npDrukPaperChange"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="bad in PNPBadmark track by $index"><input type="text" value="{{bad}}" pk-listen
+                id="{{$index}}" class="npPNPBadmark"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="pnpPComp in PNPpickComponent track by $index"><input type="text" value="{{pnpPComp}}" pk-listen
+                id="{{$index}}" class="npPNPpickComponent"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="pnpCompCorr in PNPprogramCorrection track by $index"><input type="text" value="{{pnpCompCorr}}" pk-listen
+                id="{{$index}}" class="npPNPprogramCorrection"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="pnptrCh in PNPtrayChange track by $index"><input type="text" value="{{pnptrCh}}" pk-listen
+                id="{{$index}}" class="npPNPtrayChange"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="pnpClNoz in PNPcleaningNozzle track by $index"><input type="text" value="{{pnpClNoz}}" pk-listen
+                id="{{$index}}" class="npPNPcleaningNozzle"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="pnopFeedCh in PNPfeederChange track by $index"><input type="text" value="{{pnopFeedCh}}" pk-listen
+                id="{{$index}}" class="npPNPfeederChange"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="pnpRippFoil in PNPripedFoil track by $index"><input type="text" value="{{pnpRippFoil}}" pk-listen
+                id="{{$index}}" class="npPNPripedFoil"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="ref in Reflow track by $index"><input type="text" value="{{ref}}" pk-listen
+                id="{{$index}}" class="npReflow"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="aoiCorr in AOIcorrection track by $index"><input type="text" value="{{aoiCorr}}" pk-listen
+                id="{{$index}}" class="npAOIcorrection"/></td>
+            </tr>
+             <tr>
+                <td ng-repeat="nppoth1 in Othernpp1 track by $index"><input type="text" value="{{nppoth1}}" pk-listen
+                id="{{$index}}" class="npOthernpp1"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="nppoth2 in Othernpp2 track by $index"><input type="text" value="{{nppoth2}}" pk-listen
+                id="{{$index}}" class="npOthernpp2"/></td>
+            </tr>
+            <tr>
+                <td ng-repeat="nppoth3 in Othernpp3 track by $index"><input type="text" value="{{nppoth3}}" pk-listen
+                id="{{$index}}" class="npOthernpp3"/></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+     <table class="nppStopsTot">
+        <thead>
+            <tr>
+                <th class="row-suma1">&#931</th>
+                <th class="row-suma2">&#931</th>
+                <th class="row-sumaTot">&#931</th>
+                <th class="row-percentTot">%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td ng-repeat="modchTot in modelChangeTot track by $index">
+                    <input type="text" value="{{modchTot}}" pk-listen1 id="{{$index}}" class="modelChangeTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="chSideTot in changeSideTot track by $index">
+                  <input type="text" value="{{chSideTot}}" pk-listen1 id="{{$index}}" class="changeSideTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="chVerTot in changeVersionTot track by $index">
+                    <input type="text" value="{{chVerTot}}" pk-listen1 id="{{$index}}" class="changeVersionTot" readonly/>
+                </td>
+            </tr>
+            <tr >
+                <td ng-repeat="missCompTot in missingComponentTot track by $index">
+                    <input type="text" value="{{missCompTot}}" pk-listen1 id="{{$index}}" class="missingComponentTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="compVer in componentVerificationTot track by $index">
+                    <input type="text" value="{{compVer}}" pk-listen1 id="{{$index}}" class="componentVerificationTot" readonly/>
+                </td>
+            </tr>
+             <tr >
+                <td ng-repeat="wrPlStTot in wrongPlStencilTot track by $index">
+                    <input type="text" value="{{wrPlStTot}}" pk-listen1 id="{{$index}}" class="wrongPlStencilTot" readonly/>
+                </td>
+            </tr>
+             <tr >
+                <td ng-repeat="damStTot in damagedStencilTot track by $index">
+                    <input type="text" value="{{damStTot}}" pk-listen1 id="{{$index}}" class="damagedStencilTot" readonly/>
+                </td>
+            </tr>
+            <tr >
+                <td ng-repeat="DrukClStTot in DrukCleaningStencilTot track by $index">
+                    <input type="text" value="{{DrukClStTot}}" pk-listen1 id="{{$index}}" class="DrukCleaningStencilTot" readonly/>
+                </td>
+            </tr>
+
+            <tr>
+                <td ng-repeat="drukAddPTot in DrukAddingPasteTot track by $index">
+                    <input type="text" value="{{drukAddPTot}}" pk-listen1 id="{{$index}}" class="DrukAddingPasteTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="DrukDodVigtot in DrukDodanieVigonTot track by $index">
+                    <input type="text" value="{{DrukDodVigtot}}" pk-listen id="{{$index}}" class="DrukDodanieVigonTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="DrukPrChTot in DrukProgramCorrectionTot track by $index">
+                    <input type="text" value="{{DrukPrChTot}}" pk-listen1 id="{{$index}}" class="DrukProgramCorrectionTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="DrikPapChTot in DrukPaperChangeTot track by $index">
+                    <input type="text" value="{{DrikPapChTot}}" pk-listen1 id="{{$index}}" class="DrukPaperChangeTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="PnPBadTot in PNPBadmarkTot track by $index">
+                    <input type="text" value="{{PnPBadTot}}" pk-listen1 id="{{$index}}" class="PNPBadmarkTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="PnPCmpTot in PNPpickComponentTot track by $index">
+                    <input type="text" value="{{PnPCmpTot}}" pk-listen1 id="{{$index}}" class="PNPpickComponentTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="PnPPrCorTot in PNPprogramCorrectionTot track by $index">
+                    <input type="text" value="{{PnPPrCorTot}}" pk-listen1 id="{{$index}}" class="PNPprogramCorrectionTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="PnPTrChTot in PNPtrayChangeTot track by $index">
+                    <input type="text" value="{{PnPTrChTot}}" pk-listen1 id="{{$index}}" class="PNPtrayChangeTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="PnPClNozzTot in PNPcleaningNozzleTot track by $index">
+                    <input type="text" value="{{PnPClNozzTot}}" pk-listen1 id="{{$index}}" class="PNPcleaningNozzleTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="PnPFeedChTot in PNPfeederChangeTot track by $index">
+                    <input type="text" value="{{PnPFeedChTot}}" pk-listen1 id="{{$index}}" class="PNPfeederChangeTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="PNPripFoilTot in PNPripedFoilTot track by $index">
+                    <input type="text" value="{{PNPripFoilTot}}" pk-listen1 id="{{$index}}" class="PNPripedFoilTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="refTot in ReflowTot track by $index">
+                    <input type="text" value="{{refTot}}" pk-listen1 id="{{$index}}" class="npOther3" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="AoiCorTot in AOIcorrectionTot track by $index">
+                    <input type="text" value="{{AoiCorTot}}" pk-listen1 id="{{$index}}" class="AOIcorrectionTot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="nppOth1Tot in Othernpp1Tot track by $index">
+                    <input type="text" value="{{nppOth1Tot}}" pk-listen1 id="{{$index}}" class="Othernpp1Tot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="nppOth2Tot in Othernpp2Tot track by $index">
+                    <input type="text" value="{{nppOth2Tot}}" pk-listen1 id="{{$index}}" class="Othernpp2Tot" readonly/>
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="nppOth3Tot in Othernpp3Tot track by $index">
+                    <input type="text" value="{{nppOth3Tot}}" pk-listen1 id="{{$index}}" class="Othernpp3Tot" readonly/>
+                </td>
+            </tr>
+
+
+
+        </tbody>
+
+    </table>
+
+
+
+</div>

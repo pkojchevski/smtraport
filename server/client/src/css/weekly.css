@@ -1,0 +1,231 @@
+.body {
+ overflow-y:auto;
+}
+
+.container {
+    margin:auto;
+}
+
+.piechart3 {
+    width:250px;
+    height:200px;
+    display:inline-block;
+    border:1px solid red;
+    border-radius:5px;
+}
+
+.chartWeekly {
+/*    margin-left:100px;*/
+    width:400px;
+    height:300px;
+    display:inline-block;
+    border:1px solid red;
+    border-radius:5px;
+}
+
+.piechart4 {
+    border:1px solid red;
+    width:250px;
+    height:200px;
+    display:inline-block;
+    border-radius:5px;
+
+}
+
+#container, #container3, #container4, #container5, #container6 {
+    width:100%;
+    height:100%;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    margin:0;
+}
+
+.infoData1 {
+    display:inline-block;
+    width:200px;
+    height:150px;
+    border:1px solid red;
+    border-radius:5px;
+
+}
+
+input[type="text"] {
+    border:1px solid antiquewhite;
+    height:25px;
+}
+.data-weekly {
+    width:20%;
+}
+
+.recordsWeekly {
+    table-layout:fixed;
+    font-size:10px;
+    text-align:center;
+    display:inline-block;
+    width:425px;
+    margin-left:275px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: none;
+}
+
+.recordsWeekly td {
+  height:25px;
+}
+
+.week {
+  max-width:80px;
+  min-width:80px;
+}
+
+.row-date-weekly {
+    max-width:48px;
+    min-width:48px;
+}
+
+.recordsWeeklyTot {
+  text-align: center;
+    table-layout:fixed;
+    display:inline-block;
+    width:140px;
+    padding:0px;
+    margin:0px;
+}
+
+.row-sumaTot-weekly,
+.row-percentTot-weekly {
+    width:70px;
+}
+
+.productsWeekly {
+    text-align: center;
+    table-layout:fixed;
+    display:inline-block;
+    width:350px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    text-wrap: none;
+}
+.productsWeekly td {
+     max-height:25px;
+     min-height:25px;
+     font-size:9px;
+}
+
+.row-index-weekly  {
+    width:85px;
+}
+.row-opis-weekly {
+   max-width:180px;
+   min-width:180px;
+   font-size:10px;
+   overflow: hidden;
+   text-wrap: none;
+}
+.row-pcbs-weekly {
+    width:35px;
+}
+.row-eff100-weekly {
+    width:40px;
+}
+
+.productsWeeklyQuantity {
+   table-layout:fixed;
+   display:inline-block;
+   width:345px;
+   text-align: center;
+}
+
+.productsWeeklyQuantity td {
+    height:25px;
+}
+
+.productsWeeklyQuantityTot {
+    text-align: center;
+    display:inline-block;
+    width:140px;
+}
+
+.row-sumaTot-weekly, .row-percent-weekly {
+    width:70px;
+}
+
+
+.ppStopsWeekly {
+    text-align: center;
+    width:700px;
+    table-layout:fixed;
+    display:inline-block;
+}
+
+.ppStopsWeekly th, td {
+      border:1px solid blue;
+      font-size:10px;
+      height:25px;
+}
+
+.opisPrzestojów-weekly {
+    width:175px;
+}
+.details-weekly {
+    width:175px;
+}
+.h0, .h1, .h2, .h3, .h4, .h5, .h6 {
+    width:50px;
+}
+
+.nppStopsWeekly {
+    width:700px;
+    table-layout:fixed;
+    display:inline-block;
+    text-align: center;
+}
+
+.nppStopsWeekly th,td {
+    font-size: 10px;
+    border:1px solid blue;
+    height:25px;
+}
+
+.ppStopsWeeklyTot {
+  text-align: center;
+    table-layout:fixed;
+    display:inline-block;
+    width:150px;
+    padding:0;
+    margin:0;
+}
+
+
+
+.ppStopsWeeklyTot td,th {
+    border:1px solid blue;
+    height:25px;
+    width:35px;
+    text-align:center;
+}
+
+.nppStopsWeeklyTot {
+     text-align: center;
+    table-layout:fixed;
+    display:inline-block;
+    width:150px;
+    padding:0;
+    margin:0;
+}
+
+.nppStopsWeeklyTot td,th {
+    border:1px solid blue;
+    height:25px;
+    width:35px;
+    text-align:center;
+}
+
+.ppchartWeekly, .nppchartWeekly {
+    width:45%;
+    height:350px;
+    display:inline-block;
+    border-radius: 5px;
+    border:1px solid red;
+
+}

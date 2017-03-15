@@ -1,0 +1,226 @@
+<div class="container">
+    <div class="row">
+  <div class="col-ms-4">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="reset()" ng-disabled="{{currentUser.role != 'admin'}}">Reset</button>
+      </span>
+      <input type="text" value="Data:{{productionDate}}" readonly>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+
+    <div class="row">
+         <div class="chart col-sm-3">
+        <div id="container1"></div>
+         </div>
+        <div class="chart col-sm-6">
+        <div id="container"></div>
+        </div>
+        <div class="chart col-sm-3">
+        <div id="container2"></div>
+        </div>
+    </div>
+    <div growl></div>
+  <div class='rejectRate' ng-show="currentUser.role == 'admin'">
+   <div id="container12"></div>
+  </div>
+            <table class="products">
+                        <thead>
+                          <tr>
+                              <th colspan='4' styles="border:none;"></th>
+                          </tr>
+                          <tr>
+                              <th colspan='4' styles="border:none;"></th>
+                          </tr>
+                          <tr>
+                              <th colspan='4' styles="border:none;"></th>
+                          </tr>
+                          <tr>
+                              <th colspan='4' styles="border:none;"></th>
+                          </tr>
+                          <tr>
+                              <th colspan='4' styles="border:none"></th>
+                          </tr>
+                          <tr>
+                              <th colspan='4' styles="border:none"></th>
+                          </tr>
+                          <tr>
+                              <th colspan='4' styles="border:none"></th>
+                          </tr>
+                            <tr>
+                                <th class="row-index">Indeks</th>
+                                <th class="row-opis">Opis</th>
+                                <th class="row-pcbs">#pcbs</th>
+                                <th class="row-eff100">100%</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="p in products track by $index">
+                                <td class="row-index">
+                                  <input ng-readonly = "{{checkRole}}" type="text" id="{{$index}}"
+                                  class="index" ng-model="p.productIndex" pk-listen-product/></td>
+                                <td class="row-opis" style="font-size:8.5px">{{p.description}}</td>
+                                <td class="row-pcbs">{{p.pcbsonpanel}}</td>
+                                <td class="row-eff100">{{p.pcbs100}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="productsRecord">
+                        <thead>
+                            <tr>
+                                <th class='shift'>Zmiana</th>
+                                <th colspan="8" class='colspan8'>
+                                  <select name="shift">
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                    </select>
+                                </th>
+                                <th colspan="8" class='colspan8'>
+                                  <select name="shift">
+                                        <option value="B">B</option>
+                                        <option value="A">A</option>
+                                    </select>
+                               </th>
+                            </tr>
+
+                            <tr>
+                                <th class="row-hour">Godz.</th>
+                                <th ng-repeat="h in hour" class="row-{{h}}">{{h}}</th>
+
+                            </tr>
+                        </thead>
+                        <tr ng-repeat = "(key,value) in prodData">
+                                <td ng-repeat ="nelem in value track by $index" id="{{$index}}">
+                                  <input ng-readonly = "{{checkRole}}" type="text" ng-model="nelem"
+                                  value="{{nelem}}" pk-listen
+                                     id="{{$index}}" class="prodData {{key}}"/>
+                                </td>
+                             </tr>
+                    </table>
+
+                    <table class="totalEff">
+                        <thead>
+                          <tr>
+                              <th colspan = "4"></th>
+
+                          </tr>
+                            <tr>
+                                <th class="row-suma1">&#931</th>
+                                <th class="row-suma2">&#931</th>
+                                <th class="row-sumaTot">&#931</th>
+                                <th class="row-percentTot">%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <tr ng-repeat = "(key,value) in prodDataTot">
+                                <td ng-repeat ="nelem in value track by $index">
+                                  <input type="text" ng-model="nelem" value="{{nelem}}" pk-listen
+                                     id="{{$index}}" class="prodDataTot {{key}}" readonly/>
+                                </td>
+                             </tr>
+                        </tbody>
+                    </table>
+
+    <table class="ppStops">
+        <tr>
+            <th class="lineClosedTitle">Planowane przestoje(Linija zamknieta)</th>
+            <th ng-repeat="lc in prodData.lineClosed track by $index" class="pp lineClosed{{$index}}">
+                <input type="text" id="{{$index}}" class="prodData lineClosed" pk-listen1 value="{{lc}}"
+                readonly style="background-color: #ddd">
+            </th>
+        </tr>
+        <tr>
+          <td class="opisPrzestojów" style="background-color: #ddd">Opis</td>
+          <td class="details" style="background-color: #ddd">Szczegóły</td>
+          <td ng-repeat="h in hour" style="background-color: #ddd">{{h}}</td>
+        </tr>
+        <tr ng-repeat = "(key,value) in pp">
+          <td ng-repeat ="nelem in value track by $index">
+            <input ng-readonly = "{{checkRole}}" type="text" value="{{nelem}}" pk-listen
+            id="{{$index}}" ng-model = "nelem" class="pp {{key}}"/></td>
+        </tr>
+    </table>
+
+    <table class="ppStopsTot">
+        <thead>
+            <tr>
+              <th colspan="4"></th>
+           </tr>
+            <tr>
+                <th class="row-suma1">&#931</th>
+                <th class="row-suma2">&#931</th>
+                <th class="row-sumaTot">&#931</th>
+                <th class="row-percentTot">%</th>
+            </tr>
+            <tr>
+            </tr>
+        </thead>
+        <tbody>
+             <tr ng-repeat = "(key,value) in ppTot">
+                <td ng-repeat ="nelem in value track by $index">
+                  <input type="text" value="{{nelem}}" pk-listen id="{{$index}}"
+                ng-model="nelem" class="ppTot {{key}}" readonly/></td>
+            </tr>
+        </tbody>
+    </table>
+
+<table class="nppStops">
+        <thead>
+            <tr>
+        <th class="lineClosedTitle">Nieplanowane przestoje</th>
+        <th ng-repeat="npS in prodData.npStops track by $index" class="npStops{{$index}}">
+            <input type="text" id="{{$index}}" class="prodData npStops"
+            pk-listen1 value="{{npS}}" readonly style="background-color: #ddd">
+        </th>
+            </tr>
+        </thead>
+         <tbody>
+        <tr>
+        <td class="opisPrzestojów" style="background-color: #ddd">Opis</td>
+        <td class="details" style="background-color: #ddd">Szczegóły</td>
+        <td ng-repeat="h in hour" style="background-color: #ddd">{{h}}</td>
+        </tr>
+            <tr ng-repeat = "(key,value) in np">
+                <td ng-repeat ="nelem in value track by $index">
+                  <input ng-readonly = "{{checkRole}}" type="text" value="{{nelem}}" pk-listen
+                id="{{$index}}" ng-model = "nelem" class="np {{key}}"/></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+     <table class="nppStopsTot">
+        <thead>
+          <tr>
+              <th colspan="4"></th>
+          </tr>
+            <tr>
+                <th class="row-suma1">&#931</th>
+                <th class="row-suma2">&#931</th>
+                <th class="row-sumaTot">&#931</th>
+                <th class="row-percentTot">%</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr ng-repeat = "(key,value) in npTot">
+                <td ng-repeat ="nelem in value track by $index"><input type="text" value="{{nelem}}" pk-listen
+                id="{{$index}}" class="npTot {{key}}" readonly/></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="ppchartDaily">
+          <div id="container10"></div>
+    </div>
+
+          <div class="nppchartDaily">
+          <div id="container11"></div>
+    </div>
+
+
+</div>

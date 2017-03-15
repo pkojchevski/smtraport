@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="Iconarchive-Red-Orb-Alphabet-Percent.ico" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SMT OEE</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="../bower_components/bootstrap-css/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+  <!-- <link href='../dist/site.min.css' rel='stylesheet' type='text/css'> -->
+   <link href="../src/css/daily.css" rel="stylesheet" type='text/css'/>
+  <link href="../src/css/weekly.css" rel="stylesheet" type='text/css'/> -->
+  <!-- <link href="../src/css/normalize.css" rel="stylesheet" type='text/css'/> -->
+
+  <!--bower:css-->
+  <!-- <link href="../bower_components/angularjs-datepicker/dist/angular-datepicker.min.css" rel="stylesheet" type="text/css"/>
+  <link href="../bower_components/angular-growl-v2/build/angular-growl.min.css" rel="stylesheet" type="text/css"/>
+  <link href="../bower_components/angularjs-datepicker/dist/angular-datepicker.min.css" rel="stylesheet" type="text/css"/> -->
+  <!--endbower-->
+
+  <!-- <link href="js/angular-chart.min.css" rel="stylesheet" type="text/css"/>
+  <link href="../src/css/capacity.css" rel="stylesheet" type="text/css"/>
+  <link href="../src/css/daily.css" rel="stylesheet"/>
+  <link href="../src/css/weekly.css" rel="stylesheet"/> -->
+
+
+
+
+</head>
+<body>
+  <div class="container" ng-controller='NavCtrl'>
+  <ul class="nav navbar-nav nav-pills navBarPadding">
+  <li><a href="#/login" ng-show='!currentUser'>Login</a></li>
+  <li><a ng-click=logout() ng-show='currentUser'>Logout</a></li>
+  <li><a href="#/daily">Daily OEE</a></li>
+  <li><a href="#/weekly">WeeklyOEE</a></li>
+  <li><a href="#/monthly" class='disabled'>Monthly OEE</a></li>
+  <li><a href="#/yearly" class='disabled'>Yearly OEE</a></li>
+  <li><a href="#/capacity">Capacity OEE</a></li>
+  <li><a ng-show="currentUser.username == 'pkojchevski'" href="#/utilityWeekRec">UtilityWeekRec</a></li>
+  <li ><a ng-show="currentUser.username == 'pkojchevski'" href="#/utilityWeekProd">UtilityWeekProd</a></li>
+</ul>
+
+<span class='log' ng-cloak>{{currentUser.username}}</span>
+    </div>
+
+  <div ng-view></div>
+  <script src='../dist/vendors.min.js'></script>
+
+  <!-- <script src='../dist/app.min.js'></script> -->
+  <!--bower:js-->
+  <!-- <script src="../bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
+  <script src="../bower_components/angular/angular.js" type="text/javascript"></script>
+  <script src="../bower_components/angular-resource/angular-resource.min.js" type="text/javascript"></script>
+  <script src="../bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
+  <script src="../bower_components/angularjs-datepicker/dist/angular-datepicker.min.js" type="text/javascript"></script>
+  <script src="../bower_components/d3/d3.min.js" type="text/javascript"></script>
+  <script src="../bower_components/highcharts/highcharts.js" type="text/javascript"></script>
+  <script src="../bower_components/highcharts/highcharts-3d.js" type="text/javascript"></script>
+  <script src="../bower_components/moment/moment.js" type="text/javascript"></script>
+  <script src="../bower_components/underscore/underscore-min.js" type="text/javascript"></script>
+  <script src="../bower_components/angular-growl-v2/build/angular-growl.min.js" type="text/javascript"></script> -->
+
+  <!--endbower-->
+   <script src="../bower_components/angular-messages/angular-messages.min.js" type="text/javascript"></script>
+  <!-- <script src="../dist/js/app.min.js" type="text/javascript"></script> -->
+  <script src="./js/app.js" type="text/javascript"></script>
+  <script src="./js/controlers/capacityController.js" type="text/javascript"></script>
+  <script src="./js/controlers/dailyController.js" type="text/javascript"></script>
+  <script src="./js/controlers/weeklyController.js" type="text/javascript"></script>
+  <script src="./js/controlers/monthlyController.js" type="text/javascript"></script>
+  <script src="./js/controlers/yearlyController.js" type="text/javascript"></script>
+  <script src="./js/controlers/utilityWeeklyRecords.js" type="text/javascript"></script>
+  <script src="./js/controlers/utilityWeeklyProducts.js" type="text/javascript"></script>
+  <script src="./js/controlers/NavCtrl.js" type = "text/javascript"></script>
+  <script src="./js/controlers/loginController.js" type = "text/javascript"></script>
+  <script src="./js/directives/directives.js" type="text/javascript"></script>
+  <script src="./js/services/services.js" type="text/javascript"></script>
+  <script src="./js/filters/filters.js" type="text/javascript"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+- mongoose find elements from db according one text in description----------------done
+- livereload - connect+watch------------------------------------------------------done
+- callback on delete---------------------------------------------------------------done
+- write date in db ----------------------------------------------------------------done
+- check cell if is number ---------------------------------------------------------done
+- input validations in angular ----------------------------------------------------done
+- input validations in mongoose ---------------------------------------------------done
+- add icon in tab(favicin.ico)-----------------------------------------------------done
+- server for client app - apache --------------------------------------------------done
+- git------------------------------------------------------------------------------done
+- validation in angular after button is clicked -----------------------------------done
+- return errors from server -------------------------------------------------------done
+- input text on login--------------------------------------------------------------done
+- Responsive design----------------------------------------------------------------
+- field Details--------------------------------------------------------------------done
+- $apply(init())
+- tables are not matched-----------------------------------------------------------done?
+- one additional column exists on model_change----------- -------------------------done
+- add dynamicaly unplaned or planed stop-------------------------------------------
+- add user and date on capacity table----------------------------------------------done
+- add username/password for all operators on smt-----------------------------------done
+- add info who is logged in--------------------------------------------------------done
+- add grunt/gulp and divide user data with vendor data----------------------------------done
+- zeros are added to database why?-------------------------------------------------
+- form validation -----------------------------------------------------------------done
+- select button does not work?
+- click reset button automatically at midnight-------------------------------------not done
+- check dates in weeklyproducts and weeklyrecords - are different

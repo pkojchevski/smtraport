@@ -1,0 +1,138 @@
+<div class="container">
+  <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                            <div class="panel-body" style="background-color: #a6e1ec">
+                              <div class="page-header" style="margin-top: 5px;">
+                                  <h4><i>Add/Edit Cycle time</i></h4>
+                              </div>
+<form name="uForm" class="form-horizontal" id="uForm" ng-submit="addWeeklyProduct(uForm.$valid)" novalidate>
+  <div class="form-group row" >
+      <label for="indeks" class="col-sm-4 control-label">productId:</label>
+      <div class="col-sm-6">
+      <input type="text" ng-model="productId" name="productId" class="form-control" placeholder="productId"
+      required/>
+    </div>
+  </div>
+
+    <div class="form-group row" >
+      <label for="opis" class="col-sm-4 control-label">dailyQty:</label>
+        <div class="col-sm-6">
+      <input type="text" ng-model="dailyQuantity" name="dailyQuantity" class="form-control" placeholder="dailyQuantity"
+       required/>
+     </div>
+    </div>
+
+    <div class="form-group row" >
+      <label for="pcbsnapanel" class="col-sm-4 control-label">description:</label>
+      <div class="col-sm-6">
+      <input type="text" ng-model="description" name="description" class="form-control" placeholder="description"
+      required/>
+    </div>
+    </div>
+
+    <div class="form-group row" >
+      <label for="pcbsnagodzina" class="col-sm-4 control-label">prodData:</label>
+      <div class="col-sm-6">
+      <input type="text" ng-model="prodData" name="prodData" class="form-control" placeholder="prodData"
+      required/>
+    </div>
+    </div>
+
+    <div class="form-group row" >
+      <label for="pcbsnagodzina" class="col-sm-4 control-label">pcbs100:</label>
+      <div class="col-sm-6">
+      <input type="text" ng-model="pcbs100" name="pcbs100" class="form-control" placeholder="pcbs100"
+      required/>
+    </div>
+    </div>
+
+    <div class="form-group row" >
+      <label for="pcbsnagodzina" class="col-sm-4 control-label">pcbsonpanel:</label>
+      <div class="col-sm-6">
+      <input type="text" ng-model="pcbsonpanel" name="pcbsonpanel" class="form-control" placeholder="pcbsonpanel"
+      required/>
+    </div>
+    </div>
+
+    <div class="form-group row" >
+      <label for="pcbsnagodzina" class="col-sm-4 control-label">productIndex:</label>
+      <div class="col-sm-6">
+      <input type="text" ng-model="productIndex" name="productIndex" class="form-control" placeholder="productIndex"
+      required/>
+    </div>
+    </div>
+
+    <div class="col-md-2"></div>
+     <div class="form-group">
+     <button id="btnAdd" type="submit" name="action" value="Add" class="btn btn-primary" ng-disabled="{{currentUser.role != 'admin'}}">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+
+     <a id="btnContinue" ng-click="clearFields()" name="action" value="continue" class="btn btn-primary">
+          <i class="fa fa-forward" aria-hidden="true"></i></a>
+
+     <a ng-click="searchWeeklyProducts()" class="btn btn-primary" >
+         <i class="fa fa-search" aria-hidden="true"></i></a>
+     <div growl inline="true"></div>
+   </div>
+<!--
+    <div growl></div> -->
+  </form>
+</div>
+</div>
+
+
+   <!-- <div class="col-sm-8">
+       <div class="form-group">
+           <input type="text" class="form-control" ng-model="f.dateOfProd" placeholder="Search by Index...">
+       </div>
+   </div> -->
+    <table id="tabelaWeeklyProducts" class="table-condensed table-hover table-striped table-bordered">
+        <thead style="font-size: 12px">
+            <tr>
+                <!-- <th class="row-1 row-id">Id</th> -->
+                <th class="row-1 row-id">id</th>
+                <th class="row-1 row-productId">productId</th>
+                <th class="row-2 row-dailyQuantity">dailyQuantity</th>
+                <th class="row-3 row-description">description</th>
+                <th class="row-4 row-prodData">prodData</th>
+                <th class="row-4 row-pcbs100">pcbs100</th>
+                <th class="row-4 row-pcbsonpanel">pcbsonpanel</th>
+                <th class="row-4 row-productIndex">productIndex</th>
+                <th class="row-5 row-edit">Edit</th>
+                <th class="row-6 row-delete">Delete</th>
+            </tr>
+        </thead>
+        <tbody style="font-size: 10px">
+
+            <tr ng-repeat="p in WeeklyProducts">
+                <td>{{::p._id}}</td>
+                <td>{{::p.productId}}</td>
+                <td>{{::p.dailyQuantity}}</td>
+                <td>{{::p.description}}</td>
+                <td>{{::p.prodData}}</td>
+                <td>{{::p.pcbs100}}</td>
+                <td>{{::p.pcbsonpanel}}</td>
+                <td>{{::p.productIndex}}</td>
+
+                <td>
+                <a scrollup class="btn btn-small" href="" ng-click="editWeeklyProduct(p)"
+                ng-disabled="{{currentUser.username != 'pkojchevski'}}">
+                <i class="fa fa-pencil-square-o" title="Edit" aria-hidden="true"></i>
+                <span class="sr-only"></span>
+                </a>
+                </td>
+                <td>
+                <a scrollup class="btn btn-small" href="" ng-click="deleteWeeklyProduct(p)"
+                ng-disabled="{{currentUser.username != 'pkojchevski'}}">
+                <i class="fa fa-trash-o" title="Delete" aria-hidden="true"></i>
+                <span class="sr-only"></span>
+                </a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>

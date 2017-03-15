@@ -1,0 +1,480 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.chart {
+   height:250px;
+   border:1px solid blue;
+   margin-bottom: 25px;
+}
+
+#container1, #container2, #container, #container10, #container11, #container12 {
+    width:100%;
+    height:100%;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    margin:0;
+}
+
+input[type="text"], select {
+     width: 100%;
+     height:100%;
+     box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     border:none;
+    /*border-radius: 2px;*/
+     outline:none;
+     margin:0;
+     text-align:center;
+     font-size:11.5px;
+     font-weight: bold;
+}
+
+input[type="text"], select {
+     width: 100%;
+     height:100%;
+     box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     border:none;
+    /*border-radius: 2px;*/
+     outline:none;
+     margin:0;
+     text-align:center;
+     font-size:11.5px;
+     font-weight: bold;
+}
+
+.container {
+    border:1px solid black;
+}
+
+
+select {
+    font-size:12px;
+    text-align-last:center;
+}
+
+.rejectRate {
+  position:absolute;
+  border-color: 1px solid blue;
+  background-color: '#ffffff';
+  width:340px;
+  height:193px;
+  font-size:8px;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor:alias;
+}
+
+.log {
+  float:right;
+  color:gray;
+  font-size: 10px;
+  font-style: italic;
+}
+
+.productsRecord {
+  margin-left:1px;
+}
+
+ .totalEff {
+   margin-left: 1px;
+ }
+
+
+.productsRecord, .products, .totalEff, .ppStops, .ppStopsTot, .nppStops, .nppStopsTot {
+  table-layout: fixed;
+  display:inline-block;
+  float:left;
+  text-align: center;
+  font-size:10px;
+  word-wrap:break-word;
+  text-overflow: elipsis;
+  overflow: hidden;
+  text-wrap: none;
+  padding:0;
+  border-collapse: collapse;
+  margin-bottom:2px;
+}
+
+.products {
+  width:340px;
+}
+
+.products td  {
+    border:1px solid blue;
+    height:27px;
+    text-align:center;
+    font-size:10px;
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.productsRecord td  {
+    border:1px solid blue;
+    height:27px;
+    text-align:center;
+    font-size:10px;
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.totalEff td  {
+    border:2px solid blue;
+    height:27px;
+    text-align:center;
+    font-size:10px;
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.products th {
+    border:1px solid blue;
+    height:27px;
+    text-align:center;
+    font-size:10px;
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.productsRecord th  {
+    border:1px solid blue;
+    height:27px;
+    text-align:center;
+    font-size:10px;
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.totalEff th  {
+    border:2px solid blue;
+    border-left: 2px solid blue;
+    height:27px;
+    text-align:center;
+    font-size:10px;
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+
+td:hover input {
+  border:1px solid red;
+}
+
+.productsRecord {
+    max-width:569px;
+}
+
+.shift {
+    max-width:75px;
+    min-width:75px;
+}
+
+/*th.colspan8 {
+  max-width:200px;
+}*/
+
+/*.row-06-07, .row-07-08, .row-08-09, .row-09-10, .row-10-11, .row-11-12, .row-12-13, .row-13-14,
+.row-14-15, .row-15-16, .row-16-17, .row-17-18, .row-18-19, .row-19-20, .row-20-21, .row-21-22 {
+    max-width:10px;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}*/
+
+
+.products {
+    width:341px;
+}
+
+.row-index {
+    width:91px;
+}
+.row-opis {
+   max-width:210px;
+   min-width:210px;
+   /*font-size:4px;*/
+}
+/*.td-row-opis {
+  font-size: 8px;
+}*/
+
+.row-pcbs, .row-eff100 {
+    width:20px;
+}
+
+.totalEff {
+    width:142px;
+}
+
+.row-suma1, .row-suma2, .row-sumaTot, .row-percentTot  {
+    max-width:35px;
+    min-width:35px;
+}
+
+.ppStops th {
+  border:1px solid blue;
+  height:27px;
+  text-align:center;
+  font-size:10px;
+  margin:0;
+  padding:0;
+}
+
+
+
+.ppStops td {
+  border:1px solid blue;
+  height:27px;
+  text-align:center;
+  font-size:10px;
+  margin:0;
+  padding:0;
+}
+
+
+
+.ppStops {
+  margin-right: 1px;
+}
+
+.ppStopsTot th {
+  border:2px solid blue;
+  height:27px;
+  text-align:center;
+  font-size:10px;
+  margin:0;
+  padding:0;
+}
+
+.ppStopsTot td {
+  border:2px solid blue;
+  height:27px;
+  text-align:center;
+  font-size:10px;
+  margin:0;
+  padding:0;
+}
+
+.ppStops {
+    width:911px;
+}
+
+.lineClosedTitle {
+   width:255px;
+   font-size:10px;
+}
+
+.lineClosed0 {
+    max-width:204px;
+    min-width:204px;
+}
+
+/*.lineClosed1, .lineClosed2,.lineClosed3,.lineClosed4,.lineClosed5, .lineClosed6, .lineClosed7, .lineClosed8,
+.lineClosed9, .lineClosed10, .lineClosed11, .lineClosed12, .lineClosed13,.lineClosed14,.lineClosed15,.lineClosed16 {
+ width:30px;
+}*/
+
+.nppStops th {
+  border:1px solid blue;
+  height:27px;
+  text-align:center;
+  font-size:10px;
+  margin:0;
+  padding:0;
+}
+
+.nppStops td {
+  border:1px solid blue;
+  height:27px;
+  text-align:center;
+  font-size:10px;
+  margin:0;
+  padding:0;
+}
+
+.nppStopsTot td {
+  border:2px solid blue;
+  height:27px;
+  text-align:center;
+  font-size:10px;
+  margin:0;
+  padding:0;
+}
+
+
+.nppStopsTot th {
+  border:2px solid blue;
+  height:27px;
+  text-align:center;
+  font-size:10px;
+  margin:0;
+  padding:0;
+}
+
+.nppStops {
+    width:911px;
+}
+
+.nppStops {
+  margin-left:1px;
+}
+
+.npStops0 {
+     max-width:207px;
+     min-width:207px;
+}
+
+.ppStopsTot {
+    width:142px;
+}
+
+.nppStopsTot {
+  width:142px;
+}
+
+.ppchartDaily, .nppchartDaily {
+    width:45%;
+    height:250px;
+    display:inline-block;
+    border:1px solid red;
+}
+
+th {
+    background-color: #ddd;
+}
+
+.nppStops td:nth-child(3) input,
+.nppStops td:nth-child(4) input,
+.nppStops td:nth-child(5) input,
+.nppStops td:nth-child(6) input,
+.nppStops td:nth-child(7) input,
+.nppStops td:nth-child(8) input,
+.nppStops td:nth-child(9) input,
+.nppStops td:nth-child(10) input {
+    background-color:#ffff4d;
+}
+
+.nppStops td:nth-child(1) input {
+    background-color:#ddd;
+}
+
+
+.nppStopsTot td:nth-child(1) input {
+    background-color:#ffff4d;
+}
+
+.nppStops td:nth-child(11) input,
+.nppStops td:nth-child(12) input,
+.nppStops td:nth-child(13) input,
+.nppStops td:nth-child(14) input,
+.nppStops td:nth-child(15) input,
+.nppStops td:nth-child(16) input,
+.nppStops td:nth-child(17) input,
+.nppStops td:nth-child(18) input {
+    background-color:#3276b1;
+    color:#ddd;
+}
+
+.nppStopsTot td:nth-child(2) input {
+   background-color:#3276b1;
+    color:#ddd;
+}
+
+.ppStops td:nth-child(1) input {
+    background-color:#ddd;
+}
+
+.ppStops td:nth-child(3) input,
+.ppStops td:nth-child(4) input,
+.ppStops td:nth-child(5) input,
+.ppStops td:nth-child(6) input,
+.ppStops td:nth-child(7) input,
+.ppStops td:nth-child(8) input,
+.ppStops td:nth-child(9) input,
+.ppStops td:nth-child(10) input {
+    background-color:#ffff4d;
+}
+
+.ppStopsTot td:nth-child(1) input {
+    background-color:#ffff4d;
+}
+
+.ppStops td:nth-child(11) input,
+.ppStops td:nth-child(12) input,
+.ppStops td:nth-child(13) input,
+.ppStops td:nth-child(14) input,
+.ppStops td:nth-child(15) input,
+.ppStops td:nth-child(16) input,
+.ppStops td:nth-child(17) input,
+.ppStops td:nth-child(18) input {
+    background-color:#3276b1;
+    color:#ddd;
+}
+
+.ppStopsTot td:nth-child(2) input {
+    background-color:#3276b1;
+    color:#ddd;
+}
+
+.productsRecord td:nth-child(2) input,
+.productsRecord td:nth-child(3) input,
+.productsRecord td:nth-child(4) input,
+.productsRecord td:nth-child(5) input,
+.productsRecord td:nth-child(6) input,
+.productsRecord td:nth-child(7) input,
+.productsRecord td:nth-child(8) input,
+.productsRecord td:nth-child(9) input {
+    background-color:#ffff4d;
+}
+
+.productsRecord td:nth-child(1) input {
+    background-color:#ddd;
+}
+
+
+.totalEff td:nth-child(1) input {
+    background-color:#ffff4d;
+}
+
+
+
+.productsRecord td:nth-child(10) input,
+.productsRecord td:nth-child(11) input,
+.productsRecord td:nth-child(12) input,
+.productsRecord td:nth-child(13) input,
+.productsRecord td:nth-child(14) input,
+.productsRecord td:nth-child(15) input,
+.productsRecord td:nth-child(16) input,
+.productsRecord td:nth-child(17) input {
+    background-color:#3276b1;
+    color:#ddd;
+}
+
+.totalEff td:nth-child(2) input {
+    background-color:#3276b1;
+    color:#ddd;
+}
